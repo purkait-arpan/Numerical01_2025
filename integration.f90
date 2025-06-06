@@ -1,3 +1,5 @@
+! Author: Arpan Purkait
+! Date: 2025-06-07
 program main
     integer, parameter :: n = 11
     real :: x(n), y(n)

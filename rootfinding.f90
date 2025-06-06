@@ -1,3 +1,5 @@
+! Author: Arpan Purkait
+! Date: 2025-06-07
 program main
     implicit none
     real, external :: bisection, newton_raphson, secant

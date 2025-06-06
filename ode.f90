@@ -1,3 +1,5 @@
+! Author: Arpan Purkait
+! Date: 2025-06-07
 program main
     implicit none
     integer, parameter :: n = 1000
