@@ -10,6 +10,7 @@ program main
     print *, 'Integral =', trapz(fi, 0.00, 1.00, 0.001)
     print *, 'Integral =', simpson(fi, 0.00, 1.00, 0.001)
     print *, 'Integral =', trapz2(n, x, y)
+
 contains
     real function fi(x)
         real, intent(in) :: x
