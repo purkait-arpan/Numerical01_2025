@@ -27,7 +27,7 @@ subroutine euler(f, x0, y0, xEnd, n, x, y)
         end function f
     end interface
 
-    real :: x0, y0,xEnd
+    real, intent(in) :: x0, y0,xEnd
     integer, intent(in) :: n
     real, intent(out) :: x(n), y(n)
     integer :: i
@@ -41,7 +41,6 @@ subroutine euler(f, x0, y0, xEnd, n, x, y)
         x(i + 1) = x(i) + h
         y(i + 1) = y(i) + h * f(x(i), y(i))
     end do
-
 end subroutine euler
 
 subroutine rk2(f, x0, y0, xEnd, n, x, y)

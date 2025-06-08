@@ -18,10 +18,10 @@ program main
 
 end program main
 
-function forward(xp,n,x,y) result(yp)
+real function forward(xp,n,x,y) result(yp)
   integer :: n, i, j, k
   real :: x(n), y(n), d_table(n,n)
-  real :: xp,yp, h, u, mult
+  real :: xp, h, u, mult
   d_table = 0.0
   d_table(:,1) = y
   h = x(2) - x(1) 
@@ -54,9 +54,7 @@ function backward(xp,n,x,y) result(yp)
   h = x(2) - x(1)
   k = 1
   do i = 1, n
-      if (xp >= x(i)) then
-          k = i + 1
-      endif
+      if (xp >= x(i)) k = i + 1
   enddo
   u = (xp - x(k)) / h
   yp = y(k)
@@ -72,7 +70,6 @@ function backward(xp,n,x,y) result(yp)
   enddo
 end function backward
 
-
 function lagrange(xp,n,x,y) result(yp)
   implicit none
   integer :: n, i, j
@@ -81,23 +78,8 @@ function lagrange(xp,n,x,y) result(yp)
   do i = 1, n
     co = y(i)
     do j = 1, n
-      if (j /= i) then
-        co = co * (xp - x(j)) / (x(i) - x(j))
-      endif
+      if (j /= i) co = co * (xp - x(j)) / (x(i) - x(j))
     enddo
     yp = yp + co
   enddo
 end function lagrange
-
-
-
-
-
-
-
-
-
-
-
-
-
