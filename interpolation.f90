@@ -19,9 +19,12 @@ program main
 end program main
 
 real function forward(xp,n,x,y) result(yp)
-  integer :: n, i, j, k
-  real :: x(n), y(n), d_table(n,n)
-  real :: xp, h, u, mult
+  integer, intent(in) :: n
+  real, intent(in) :: x(n), y(n)
+  real, intent(in) :: xp
+  real :: d_table(n,n)
+  integer :: i, j, k
+  real :: h, u, mult
   d_table = 0.0
   d_table(:,1) = y
   h = x(2) - x(1) 
@@ -45,10 +48,13 @@ real function forward(xp,n,x,y) result(yp)
   enddo
 end function forward
 
-function backward(xp,n,x,y) result(yp)
-  integer :: n, i, j, k
-  real :: x(n), y(n), d_table(n,n)
-  real :: xp,yp, h, u, mult
+real function backward(xp,n,x,y) result(yp)
+  integer, intent(in) :: n
+  real, intent(in) :: x(n), y(n)
+  real, intent(in) :: xp
+  real :: d_table(n,n)
+  integer :: i, j, k
+  real :: h, u, mult
   d_table = 0.0
   d_table(:,1) = y
   h = x(2) - x(1)
@@ -70,10 +76,12 @@ function backward(xp,n,x,y) result(yp)
   enddo
 end function backward
 
-function lagrange(xp,n,x,y) result(yp)
-  implicit none
-  integer :: n, i, j
-  real :: x(n), y(n), xp,yp,co
+real function lagrange(xp,n,x,y) result(yp)
+  integer, intent(in) :: n
+  real, intent(in) :: x(n), y(n)
+  real, intent(in) :: xp
+  integer :: i, j
+  real :: co
   yp = 0.00
   do i = 1, n
     co = y(i)

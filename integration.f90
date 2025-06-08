@@ -56,8 +56,9 @@ real function simpson(f,a,b,h) result(s)
 end function simpson
 
 real function trapz2(n,x,y) result(s)
-    integer :: n, i
-    real :: x(n), y(n)
+    integer, intent(in) :: n
+    real, intent(in) :: x(n), y(n)
+    integer :: i
     s = 0.0
     do i = 1, n - 1
         s = s + (((y(i) + y(i + 1)) * (x(i + 1) - x(i))) / 2.0)
