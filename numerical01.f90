@@ -1,4 +1,4 @@
-
+! Arpan Purkait
 real function bisection(f,a,b,tol) result(root)
     interface 
         real function f(x) 
@@ -216,7 +216,7 @@ subroutine euler(f, x0, y0, xEnd, n, x, y)
     x(1) = x0
     y(1) = y0
 
-    do i = 1, n-1
+    do i = 1, n - 1
         x(i + 1) = x(i) + h
         y(i + 1) = y(i) + h * f(x(i), y(i))
     end do
@@ -224,7 +224,7 @@ subroutine euler(f, x0, y0, xEnd, n, x, y)
 
 subroutine rk2(f, x0, y0, xEnd, n, x, y)
     interface
-        real, function f(x,y)
+        real function f(x,y)
             real, intent(in) :: x, y
         end function f 
     end interface
